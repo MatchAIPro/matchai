@@ -89,12 +89,6 @@
     .card h3 { font-size: 32px; }
     .card p  { font-size: 24px; }
 
-    .winner {
-      color: #16a34a;
-      font-weight: bold;
-      text-shadow: 0 0 10px rgba(34,197,94,0.6);
-    }
-
     .bar-bg {
       background: #eee;
       height: 22px;
@@ -137,6 +131,26 @@
       overflow-wrap: break-word;
       white-space: normal;
     }
+
+    /* ⭐ FOOTER SAAS STYLE */
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 13px;
+      color: #6b7280;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer a {
+      color: #6d28d9;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -167,13 +181,20 @@
   MatchAI Pro expressly disclaims all liability for any direct or indirect damages arising from the use of this application.
 </div>
 
+<!-- ⭐ SAAS FOOTER -->
+<div class="footer">
+  © 2026 ⚖️ MatchAI Pro. All Rights Reserved.
+  <br><br>
+  <a href="#">Privacy Policy</a> |
+  <a href="#">Terms of Service</a> |
+  <a href="#">Contact</a>
+</div>
+
 <script>
 let data = [];
 
-/* STRIPE */
 const stripeURL = "https://buy.stripe.com/eVqcN60Ej19c2Kj8Vk6Zy00";
 
-/* 2 FREE SYSTEM */
 function getDeviceKey() {
   return btoa(navigator.userAgent + screen.width + screen.height);
 }
@@ -190,7 +211,6 @@ function saveUses() {
   localStorage.setItem("freeUses_" + getDeviceKey(), freeUses);
 }
 
-/* FLAGS */
 function getCode(team) {
   const map = {
     "germany": "de",
@@ -215,7 +235,6 @@ function flag(code) {
   return `<img class="flag" src="https://flagcdn.com/w40/${code}.png">`;
 }
 
-/* DATA */
 fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv")
 .then(r => r.text())
 .then(t => {
@@ -229,7 +248,6 @@ fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv
   document.getElementById("status").innerHTML = "✅ Ready";
 });
 
-/* PREDICT */
 function predict() {
 
   if (freeUses <= 0) {

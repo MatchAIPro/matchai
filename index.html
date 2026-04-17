@@ -11,7 +11,6 @@
       background: #f4f6fb;
     }
 
-    /* LOGO */
     .logo {
       width: 86%;
       height: auto;
@@ -21,7 +20,6 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
-    /* TITLE */
     h1 {
       font-size: 44px;
       font-weight: 900;
@@ -41,7 +39,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* INPUTS */
     .input-box {
       padding: 20px;
       margin: 8px;
@@ -54,7 +51,6 @@
     #team1 { background: #ecfdf5; border-color: #22c55e; }
     #team2 { background: #eff6ff; border-color: #3b82f6; }
 
-    /* BUTTON */
     .usa-button {
       margin-top: 10px;
       padding: 20px 43px;
@@ -73,15 +69,14 @@
       background: #be123c;
     }
 
-    /* 🔥 RESULT CARD (%50 BÜYÜTÜLDÜ) */
     .card {
       margin-top: 20px;
-      padding: 35px;              /* büyütüldü */
+      padding: 35px;
       border-radius: 15px;
       background: white;
       display: inline-block;
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      width: 520px;               /* %50 civarı büyüme */
+      width: 520px;
       animation: fadeIn 0.6s ease;
     }
 
@@ -127,7 +122,6 @@
       vertical-align: middle;
     }
 
-    /* 🔴 LEGAL DISCLAIMER (2 YANA YASLANDI) */
     .disclaimer {
       margin-top: 25px;
       font-size: 13px;
@@ -135,11 +129,9 @@
       font-weight: 600;
       line-height: 1.5;
       max-width: 900px;
-
       margin-left: auto;
       margin-right: auto;
-
-      text-align: justify;   /* 👈 iki yana yaslandı */
+      text-align: justify;
     }
   </style>
 </head>
@@ -160,21 +152,34 @@
 <div id="status">Loading...</div>
 <div id="result"></div>
 
-<!-- DISCLAIMER -->
 <div class="disclaimer">
   ⚠️ Legal Disclaimer:  
   This application is intended for AI-driven sports analytics purposes only.  
-
-  All predictions are generated using physics informed advanced machine learning framework trained on historical match data, transmorfer time-series analysis techniques and feature engineering, including sliding window approaches to capture temporal performance trends.  
-
-  This tool is not intended for betting, gambling, or financial decision-making of any kind.  
-
-  MatchAI Pro expressly disclaims all liability for any direct or indirect damages arising from the use of this application.  
 </div>
 
 <script>
 let data = [];
 
+/* 🔥 STRIPE LINK */
+const stripeURL = "https://buy.stripe.com/eVqcN60Ej19c2Kj8Vk6Zy00";
+/* 🔥 2 FREE LIMIT SYSTEM */
+function getDeviceKey() {
+  return btoa(navigator.userAgent + screen.width + screen.height);
+}
+
+let freeUses = localStorage.getItem("freeUses_" + getDeviceKey());
+
+if (freeUses === null) {
+  freeUses = 2;
+} else {
+  freeUses = parseInt(freeUses);
+}
+
+function saveUses() {
+  localStorage.setItem("freeUses_" + getDeviceKey(), freeUses);
+}
+
+/* FLAG SYSTEM */
 function getCode(team) {
   const map = {
     "germany": "de",
@@ -199,6 +204,7 @@ function flag(code) {
   return `<img class="flag" src="https://flagcdn.com/w40/${code}.png">`;
 }
 
+/* LOAD DATA */
 fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv")
 .then(r => r.text())
 .then(t => {
@@ -212,7 +218,17 @@ fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv
   document.getElementById("status").innerHTML = "✅ Ready";
 });
 
+/* 🔥 PREDICT (LIMIT ENTEGRE) */
 function predict() {
+
+  if (freeUses <= 0) {
+    window.location.href = stripeURL;
+    return;
+  }
+
+  freeUses--;
+  saveUses();
+
   const t1 = team1.value.toLowerCase();
   const t2 = team2.value.toLowerCase();
 

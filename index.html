@@ -127,11 +127,15 @@
       font-size: 13px;
       color: #dc2626;
       font-weight: 600;
-      line-height: 1.5;
+      line-height: 1.6;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
       text-align: justify;
+      padding: 10px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
     }
   </style>
 </head>
@@ -155,14 +159,21 @@
 <div class="disclaimer">
   ⚠️ Legal Disclaimer:  
   This application is intended for AI-driven sports analytics purposes only.  
+
+  All predictions are generated using physics-informed advanced machine learning frameworks trained on historical match data, transformer time-series analysis techniques, and feature engineering, including sliding window approaches to capture temporal performance trends.  
+
+  This tool is not intended for betting, gambling, or financial decision-making of any kind.  
+
+  MatchAI Pro expressly disclaims all liability for any direct or indirect damages arising from the use of this application.
 </div>
 
 <script>
 let data = [];
 
-/* 🔥 STRIPE LINK */
+/* STRIPE */
 const stripeURL = "https://buy.stripe.com/eVqcN60Ej19c2Kj8Vk6Zy00";
-/* 🔥 2 FREE LIMIT SYSTEM */
+
+/* 2 FREE SYSTEM */
 function getDeviceKey() {
   return btoa(navigator.userAgent + screen.width + screen.height);
 }
@@ -179,7 +190,7 @@ function saveUses() {
   localStorage.setItem("freeUses_" + getDeviceKey(), freeUses);
 }
 
-/* FLAG SYSTEM */
+/* FLAGS */
 function getCode(team) {
   const map = {
     "germany": "de",
@@ -204,7 +215,7 @@ function flag(code) {
   return `<img class="flag" src="https://flagcdn.com/w40/${code}.png">`;
 }
 
-/* LOAD DATA */
+/* DATA */
 fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv")
 .then(r => r.text())
 .then(t => {
@@ -218,7 +229,7 @@ fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv
   document.getElementById("status").innerHTML = "✅ Ready";
 });
 
-/* 🔥 PREDICT (LIMIT ENTEGRE) */
+/* PREDICT */
 function predict() {
 
   if (freeUses <= 0) {

@@ -199,7 +199,7 @@ function flag(code) {
   return `<img class="flag" src="https://flagcdn.com/w40/${code}.png">`;
 }
 
-fetch("https://raw.githubusercontent.com/SamilSen/matchai/main/predictions.csv")
+fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv")
 .then(r => r.text())
 .then(t => {
   const rows = t.split("\n").slice(1);

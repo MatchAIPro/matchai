@@ -19,15 +19,15 @@ padding:39px 26px 13px;
 }
 
 .logo{
-width:84%;
-max-width:900px;
+width:96.6%; /* %15 büyütüldü (84% → +15%) */
+max-width:1035px;
 border-radius:18px;
 box-shadow:0 18px 40px rgba(0,0,0,.18);
 margin-bottom:36px;
 }
 
 .title{
-font-size:64px;
+font-size:69px; /* +5px */
 font-weight:900;
 line-height:1.1;
 background:linear-gradient(90deg,#6d28d9,#a855f7,#ec4899,#6d28d9);
@@ -38,7 +38,7 @@ animation:move 5s ease infinite;
 }
 
 .subtitle{
-font-size:49px;
+font-size:54px; /* +5px */
 font-weight:800;
 margin-top:10px;
 background:linear-gradient(90deg,#2563eb,#7c3aed,#ec4899,#2563eb);
@@ -50,15 +50,9 @@ animation:move 5s ease infinite;
 
 .trust{
 margin-top:16px;
-font-size:25px;
+font-size:30px; /* +5px */
 font-weight:700;
 color:#374151;
-}
-
-@keyframes move{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
 }
 
 /* INPUTS */
@@ -70,27 +64,17 @@ margin-top:36px;
 width:340px;
 padding:28px;
 margin:13px;
-font-size:31px;
+font-size:36px; /* +5px */
 border-radius:14px;
 border:2px solid #d1d5db;
 outline:none;
-}
-
-#team1{
-background:#ecfdf5;
-border-color:#22c55e;
-}
-
-#team2{
-background:#eff6ff;
-border-color:#3b82f6;
 }
 
 /* BUTTON */
 .predict-btn{
 margin-top:29px;
 padding:31px 70px;
-font-size:38px;
+font-size:43px; /* +5px */
 font-weight:900;
 border:none;
 border-radius:16px;
@@ -103,24 +87,13 @@ transition:.3s;
 animation:pulse 2s infinite;
 }
 
-.predict-btn:hover{
-transform:scale(1.06);
-box-shadow:0 0 30px rgba(225,29,72,.65);
-}
-
-@keyframes pulse{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
-
 #status{
 margin-top:23px;
-font-size:24px;
+font-size:29px; /* +5px */
 font-weight:800;
 }
 
-/* RESULT CARD PREMIUM */
+/* RESULT CARD */
 .card{
 margin-top:36px;
 display:inline-block;
@@ -130,29 +103,17 @@ border-radius:24px;
 background:rgba(255,255,255,.62);
 backdrop-filter:blur(12px);
 box-shadow:0 18px 40px rgba(0,0,0,.16);
-animation:fade .6s ease;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(18px)}
-to{opacity:1;transform:translateY(0)}
 }
 
 .card h2{
-font-size:44px;
+font-size:49px; /* +5px */
 margin-bottom:13px;
 }
 
 .card h3{
-font-size:40px;
+font-size:45px; /* +5px */
 margin:18px 0 26px;
 color:#7c3aed;
-font-weight:900;
-}
-
-.gold{
-color:#f59e0b;
-text-shadow:0 0 10px rgba(245,158,11,.4);
 font-weight:900;
 }
 
@@ -165,7 +126,7 @@ vertical-align:middle;
 }
 
 .card p{
-font-size:28px;
+font-size:33px; /* +5px */
 font-weight:700;
 margin:13px 0 10px;
 }
@@ -189,21 +150,10 @@ transition:width 1.2s ease;
 .draw{background:#f59e0b;}
 .away{background:#ef4444;}
 
-.disclaimer{
-max-width:950px;
-margin:46px auto 0;
-padding:13px 23px;
-font-size:17px;
-font-weight:700;
-line-height:1.7;
-color:#dc2626;
-text-align:justify;
-}
-
 .footer{
 margin-top:46px;
 padding:26px;
-font-size:17px;
+font-size:22px; /* +5px */
 color:#6b7280;
 border-top:1px solid #e5e7eb;
 }

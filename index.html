@@ -1,344 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>MatchAI Pro</title>
+<!-- SADECE DEĞİŞTİRİLECEK CSS VE HTML KISIMLARI -->
 
 <style>
-body{
-margin:0;
-padding:0;
-font-family:Arial, sans-serif;
-text-align:center;
-background:linear-gradient(135deg,#eef2ff,#f8fafc,#ede9fe);
-color:#111827;
-}
 
-/* HERO */
-.hero{
-padding:30px 20px 10px;
-}
-
+/* LOGO ALTI BOŞLUK ARTTI */
 .logo{
-width:84%;
-max-width:900px;
-border-radius:18px;
-box-shadow:0 18px 40px rgba(0,0,0,.18);
-margin-bottom:28px;
+margin-bottom:42px;
 }
 
-.title{
-font-size:52px;
-font-weight:900;
-line-height:1.05;
-background:linear-gradient(90deg,#6d28d9,#a855f7,#ec4899,#6d28d9);
-background-size:300% 300%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:move 5s ease infinite;
-}
-
-.subtitle{
-font-size:34px;
-font-weight:800;
-margin-top:8px;
-background:linear-gradient(90deg,#2563eb,#7c3aed,#ec4899,#2563eb);
-background-size:300% 300%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:move 5s ease infinite;
-}
-
+/* BAŞLIK BLOĞU ALTI BOŞLUK */
 .trust{
-margin-top:12px;
-font-size:21px;
-font-weight:700;
-color:#374151;
+margin-top:14px;
+margin-bottom:34px;
+font-size:25px;   /* +4pt */
 }
 
-@keyframes move{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
-
-/* INPUTS */
+/* INPUT KUTULARI */
 .form-box{
-margin-top:28px;
+margin-top:36px;
 }
 
 .input-box{
-width:340px;
-padding:22px;
-margin:10px;
-font-size:27px;
-border-radius:14px;
-border:2px solid #d1d5db;
-outline:none;
+margin:16px;
 }
 
-#team1{
-background:#ecfdf5;
-border-color:#22c55e;
-}
-
-#team2{
-background:#eff6ff;
-border-color:#3b82f6;
-}
-
-/* BUTTON */
+/* INPUTLAR İLE BUTTON ARASI */
 .predict-btn{
-margin-top:22px;
+margin-top:34px;
 padding:24px 70px;
 font-size:34px;
-font-weight:900;
-border:none;
-border-radius:16px;
-cursor:pointer;
-color:white;
-background:linear-gradient(90deg,#e11d48,#f43f5e,#e11d48);
-background-size:200% 200%;
-box-shadow:0 0 18px rgba(225,29,72,.45);
-transition:.3s;
-animation:pulse 2s infinite;
 }
 
-.predict-btn:hover{
-transform:scale(1.06);
-box-shadow:0 0 30px rgba(225,29,72,.65);
-}
-
-@keyframes pulse{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
-
-#status{
-margin-top:18px;
-font-size:20px;
-font-weight:800;
-}
-
-/* RESULT CARD PREMIUM */
-.card{
-margin-top:28px;
-display:inline-block;
-width:560px;
-padding:34px;
-border-radius:24px;
-background:rgba(255,255,255,.62);
-backdrop-filter:blur(12px);
-box-shadow:0 18px 40px rgba(0,0,0,.16);
-animation:fade .6s ease;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(18px)}
-to{opacity:1;transform:translateY(0)}
-}
-
-.card h2{
-font-size:40px;
-margin-bottom:10px;
-}
-
-.card h3{
-font-size:36px;
-margin:12px 0 20px;
-color:#7c3aed;
-font-weight:900;
-}
-
-.gold{
-color:#f59e0b;
-text-shadow:0 0 10px rgba(245,158,11,.4);
-font-weight:900;
-}
-
-.flag{
-width:52px;
-height:36px;
-margin:0 8px;
-border-radius:5px;
-vertical-align:middle;
-}
-
-.card p{
-font-size:24px;
-font-weight:700;
-margin:10px 0 8px;
-}
-
-.bar-bg{
-height:24px;
-background:#e5e7eb;
-border-radius:14px;
-overflow:hidden;
-margin-bottom:14px;
-}
-
-.bar{
-height:24px;
-width:0;
-border-radius:14px;
-transition:width 1.2s ease;
-}
-
-.home{background:#22c55e;}
-.draw{background:#f59e0b;}
-.away{background:#ef4444;}
+/* ALT KISIM TOPLU +4 PT */
 
 .disclaimer{
-max-width:950px;
-margin:35px auto 0;
-padding:10px 18px;
-font-size:13px;
-font-weight:700;
-line-height:1.7;
-color:#dc2626;
-text-align:justify;
+font-size:17px;   /* önce 13 */
+margin-top:42px;
+line-height:1.8;
 }
 
 .footer{
-margin-top:35px;
-padding:20px;
-font-size:13px;
-color:#6b7280;
-border-top:1px solid #e5e7eb;
+font-size:17px;   /* önce 13 */
+margin-top:28px;
+padding:24px;
 }
 
 .footer a{
-text-decoration:none;
-color:#6d28d9;
-margin:0 8px;
+font-size:17px;
 }
+
 </style>
-</head>
 
-<body>
 
-<div class="hero">
-<img src="https://raw.githubusercontent.com/MatchAIPro/matchai/main/image.png" class="logo">
-
-<div class="title">World Cup 2026</div>
-<div class="subtitle">AI Prediction Engine</div>
-<div class="trust">📈 Trusted by 10,000+ users worldwide</div>
-</div>
-
-<div class="form-box">
-<input id="team1" class="input-box" placeholder="🏠 Home Team">
-<input id="team2" class="input-box" placeholder="✈️ Away Team">
-<br>
-<button class="predict-btn" onclick="predict()">PREDICT</button>
-</div>
-
-<div id="status">Loading...</div>
-<div id="result"></div>
-
-<div class="disclaimer">
-⚠️ Legal Disclaimer: This application is intended for AI-driven sports analytics purposes only. All predictions are generated using advanced machine learning frameworks trained on historical match data. This tool is not intended for betting, gambling, or financial decisions. MatchAI Pro disclaims liability arising from use of this application.
-</div>
+<!-- ALT KISIM YENİ SIRALAMA -->
 
 <div class="footer">
-© 2026 ⚖️ MatchAI Pro. All Rights Reserved.<br><br>
 <a href="#">Privacy Policy</a> |
 <a href="#">Terms of Service</a> |
 <a href="#">Contact</a>
+
+<br><br>
+
+⚠️ Legal Disclaimer: This application is intended for AI-driven sports analytics purposes only. All predictions are generated using advanced machine learning frameworks trained on historical match data. This tool is not intended for betting, gambling, or financial decisions. MatchAI Pro disclaims liability arising from use of this application.
+
+<br><br>
+
+© 2026 ⚖️ MatchAI Pro. All Rights Reserved.
 </div>
-
-<script>
-let data=[];
-
-fetch("https://raw.githubusercontent.com/MatchAIPro/matchai/main/predictions.csv")
-.then(r=>r.text())
-.then(t=>{
-const rows=t.split("\n").slice(1);
-data=rows.map(r=>{
-const c=r.split(",");
-return {t1:c[0],t2:c[1],h:+c[4],d:+c[5],a:+c[6]};
-});
-status.innerHTML="✅ Ready";
-});
-
-function getCode(team){
-const map={
-"germany":"de",
-"turkey":"tr",
-"usa":"us",
-"brazil":"br",
-"france":"fr",
-"spain":"es",
-"england":"gb",
-"italy":"it",
-"argentina":"ar",
-"portugal":"pt",
-"netherlands":"nl"
-};
-return map[team.toLowerCase()] || team.slice(0,2).toLowerCase();
-}
-
-function flag(code){
-return `<img class="flag" src="https://flagcdn.com/w40/${code}.png">`;
-}
-
-function predict(){
-
-const t1=team1.value.toLowerCase();
-const t2=team2.value.toLowerCase();
-
-const m=data.find(x=>x.t1.toLowerCase()==t1 && x.t2.toLowerCase()==t2);
-
-if(!m){
-result.innerHTML="<h2>Match Not Found</h2>";
-return;
-}
-
-let pred,w1="",w2="";
-
-if(m.h>m.d && m.h>m.a){
-pred=m.t1+" Win";
-w1="gold";
-}
-else if(m.a>m.h && m.a>m.d){
-pred=m.t2+" Win";
-w2="gold";
-}
-else{
-pred="Draw";
-}
-
-result.innerHTML=`
-<div class="card">
-
-<h2>
-<span class="${w1}">${flag(getCode(m.t1))} ${m.t1}</span>
-vs
-<span class="${w2}">${m.t2} ${flag(getCode(m.t2))}</span>
-</h2>
-
-<h3>${pred}</h3>
-
-<p>Home (${m.h}%)</p>
-<div class="bar-bg"><div id="b1" class="bar home"></div></div>
-
-<p>Draw (${m.d}%)</p>
-<div class="bar-bg"><div id="b2" class="bar draw"></div></div>
-
-<p>Away (${m.a}%)</p>
-<div class="bar-bg"><div id="b3" class="bar away"></div></div>
-
-</div>
-`;
-
-setTimeout(()=>{
-b1.style.width=m.h+"%";
-b2.style.width=m.d+"%";
-b3.style.width=m.a+"%";
-},120);
-
-}
-</script>
-
-</body>
-</html>
